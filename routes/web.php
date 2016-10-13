@@ -10,7 +10,9 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'V1'], function () {
+    Route::get('/', 'MainController@home')->name('Home');
+    Route::get('photos', 'MainController@photos')->name('Photos');
+    Route::get('blog', 'MainController@blog')->name('Blog');
+    Route::get('info', 'MainController@info')->name('Info');
 });
