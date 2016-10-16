@@ -16,7 +16,7 @@
             {!! $logo !!}
         </a>
     </div>
-    <ul class="nav">
+    <ul class="nav pages">
         <li><a href="{{route('Photos')}}">Photos</a></li>
         <li><a href="{{route('Blog')}}">Blog</a></li>
         <li><a href="{{route('Info')}}">Info</a></li>
