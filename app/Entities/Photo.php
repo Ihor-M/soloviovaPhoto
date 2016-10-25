@@ -19,7 +19,8 @@ class Photo extends Model
      * @var array
      */
     protected $fillable = [
-        'path',
+        'photo_path',
+        'photo_name',
         'album_id'
     ];
 
@@ -28,6 +29,6 @@ class Photo extends Model
      */
     public function album()
     {
-        return $this->belongsTo(Album::class, 'id', 'album_id');
+        return $this->belongsTo(Album::class, 'album_id', 'id');
     }
 }
