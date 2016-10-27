@@ -22,7 +22,7 @@ class AlbumRepository extends AbstractRepository
      */
     public function allAlbums()
     {
-        return $this->model->with('photos', 'category')->get();
+        return $this->model->with('photos', 'category')->orderBy('created_at', 'dsc')->get();
     }
 
     /**

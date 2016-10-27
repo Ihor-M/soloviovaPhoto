@@ -36,7 +36,7 @@ class CreateAlbumController extends Controller
      */
     public function showCreateAlbumForm()
     {
-        $albums = $this->albumRepo->getAll();
+        $albums = $this->albumRepo->allAlbums();
         return view('pages.createAlbum', compact('albums'));
     }
 
@@ -66,6 +66,33 @@ class CreateAlbumController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+    public function editAlbum($id)
+    {
+        $album = $this->albumRepo->getById($id);
+        return view('pages.editAlbum', compact('album'));
+    }
+
+    public function updateAlbum(Request $request, $id)
+    {
+        $this->validate($request, [
+            'albumName' => 'required|max:100',
+            'shotDate' => 'required|date',
+            'category' => 'required|integer'
+        ]);
+
+        $this->albumRepo->update($id, [
+            'name' => $request->albumName,
+            'shot_date' => $request->shotDate,
+            'category_id' => $request->category
+        ]);
+
+        return redirect()->route('CreateAlbum');
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showUploadForm($id)
     {
         $album = $this->albumRepo->getById($id);
@@ -79,30 +106,63 @@ class CreateAlbumController extends Controller
      */
     public function savePhotos(Request $request)
     {
-//       $album = $this->albumRepo->getById($request->albumId);
-        if($request->hasFile('newPhotos'))
+        $files = $request->file('newPhotos');
+        $amount = count($files);
+        $requestSize = 0;
+        // counting request size
+        for ($i = 0; $i <= $amount - 1; $i++)
         {
-//            dd($request);
-            $photo = $request->file('newPhotos');
-            $fileName = str_random(20) . '.' . $photo->getClientOriginalExtension();
-            $filePath = public_path('images/albums/' . $fileName);
-            Image::make($photo)->fit(450, 300)->save($filePath);
-
-            $newPhoto = $this->photosRepo->create([
-                'photo_path' => $filePath,
-                'photo_name' => $fileName,
-                'album_id' => $request->albumId
-            ]);
-            $newPhoto->save();
+            $requestSize = filesize($files[$i]) + $requestSize;
         }
-//        $photoInAlbum = $this->photosRepo->showPhotos($request->albumId);
+        // validate request size
+        $alert = null;
+        if ($requestSize > 20000000)
+        {
+            $alert = "Please choose files less than 20Mb in total.";
+        }
+        // save photos
+        try {
+            if($request->hasFile('newPhotos'))
+            {
+                $album = $this->albumRepo->getById($request->get('albumId'));
+                $photos = $request->file('newPhotos');
+                foreach ($photos as $photo)
+                {
+                    $fileName = preg_replace('/\s+/', '', $album->name)
+                                . str_random(5)
+                                . '.'
+                                . $photo->getClientOriginalExtension();
+                    $filePath = public_path('images/albums/' . $fileName);
+                    // check image orientation and resize it
+                    $exifData = Image::make($photo)->exif();
+                    $dimensions = $exifData['COMPUTED'];
+                    if ($dimensions['Width'] > $dimensions['Height'])
+                    {
+                        Image::make($photo)->fit(780, 520)->save($filePath);
+                    } else {
+                        Image::make($photo)->fit(520, 780)->save($filePath);
+                    }
+                    // save to data base
+                    $newPhoto = $this->photosRepo->create([
+                        'photo_path' => $filePath,
+                        'photo_name' => $fileName,
+                        'album_id' => $request->get('albumId')
+                    ]);
+                    $newPhoto->save();
+                }
+            }
+        } catch (\Exception $e) {
+            dd($e);
+        }
 
-        return redirect()->back();
+        return redirect(url('admin-upload-photos/' . $request->get('albumId')))->with(['alert' => $alert]);
     }
 
     public function showAlbum($id)
     {
+        $album = $this->albumRepo->album($id);
 
+        return ;
     }
 
     public function allAlbums()
@@ -113,5 +173,40 @@ class CreateAlbumController extends Controller
     public function categoryAlbum($catId)
     {
 
+    }
+
+    /**
+     *
+     * Delete album with his photos
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function delete($id)
+    {
+        $photosInAlbum = $this->photosRepo->showPhotos($id);
+        foreach ($photosInAlbum as $photo)
+        {
+            unlink(public_path('images/albums/' . $photo->photo_name));
+            $this->photosRepo->delete($photo->id);
+        }
+
+        $this->albumRepo->delete($id);
+
+        return redirect()->route('showCreateAlbumForm');
+    }
+
+    /**
+     *
+     * Delete single photo
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deletePhoto($id)
+    {
+        $photo = $this->photosRepo->getById($id);
+        unlink(public_path('images/albums/' . $photo->photo_name));
+        $this->photosRepo->delete($id);
+
+        return redirect()->back();
     }
 }

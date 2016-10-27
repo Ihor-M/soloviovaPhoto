@@ -20,23 +20,7 @@
     </div>
     {{--@include('partials.footer')--}}
 </div>
-{{--<script>--}}
-    {{--var form = document.getElementById('upload');--}}
-    {{--var request = new XMLHttpRequest();--}}
 
-    {{--form.addEventListener('submit', function (e) {--}}
-        {{--e.preventDefault();--}}
-        {{--var formData = new FormData(form);--}}
-
-        {{--request.open('post', '/admin-create-album');--}}
-        {{--request.addEventListener('load', transferComplete);--}}
-        {{--request.send(formData);--}}
-    {{--});--}}
-
-    {{--function transferComplete(data) {--}}
-        {{--console.log(data.currentTarget.response);--}}
-    {{--}--}}
-
-{{--</script>--}}
+@yield('js')
 </body>
 </html>

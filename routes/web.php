@@ -17,6 +17,10 @@ Route::group(['namespace' => 'V1'], function () {
     Route::get('info', 'MainController@info')->name('Info');
     Route::get('admin-create-album', 'CreateAlbumController@showCreateAlbumForm')->name('showCreateAlbumForm');
     Route::post('admin-create-album', 'CreateAlbumController@createAlbum')->name('CreateAlbum');
+    Route::get('admin-edit-album/{id}', 'CreateAlbumController@editAlbum')->name('editAlbum');
+    Route::put('admin-update-album/{id}', 'CreateAlbumController@updateAlbum')->name('updateAlbum');
+    Route::get('admin-delete-album/{id}', 'CreateAlbumController@delete')->name('deleteAlbum');
     Route::get('admin-upload-photos/{id}', 'CreateAlbumController@showUploadForm')->name('uploadPhotos');
     Route::post('admin-uploaded-photos', 'CreateAlbumController@savePhotos')->name('savePhotos');
+    Route::get('admin-delete-photo/{id}', 'CreateAlbumController@deletePhoto')->name('deletePhoto');
 });
