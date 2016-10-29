@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="col-lg-8 col-lg-offset-1">
+        @include('partials.authHeader')
         <h1>Update album: {{ $album->name }}</h1>
         <a href="{{asset('admin-create-album')}}">Back to albums list</a>
         <form action="{{ route('updateAlbum', [$album->id]) }}" method="post" id="createAlbum" class="create-album-form">

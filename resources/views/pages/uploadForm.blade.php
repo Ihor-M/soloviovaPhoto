@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="col-lg-9 col-lg-offset-1">
+        @include('partials.authHeader')
         <h1>Album: {{ $album->name }}</h1>
         <h4>Upload Photos</h4>
         <a href="{{asset('admin-create-album')}}">Back to albums list</a>

@@ -6056,5 +6056,31 @@ ul.nav.social-media > li > a {
   text-transform: capitalize; }
 
 /**--------------End of Validation Error messages---------------**/
+ul.navbar-nav {
+  padding: 0;
+  position: absolute;
+  right: 15px; }
+
+li.dropdown > a {
+  color: #636b6f;
+  padding: 10px 20px;
+  min-width: 160px;
+  line-height: 1.6;
+  text-align: right; }
+  li.dropdown > a:hover {
+    background: transparent;
+    color: #979ea2; }
+
+.nav .open > a:focus {
+  background: transparent;
+  border-right: 1px solid RGBA(0, 0, 0, 0.15);
+  border-left: 1px solid RGBA(0, 0, 0, 0.15); }
+
+ul.dropdown-menu > li > a {
+  color: #636b6f;
+  text-align: right; }
+  ul.dropdown-menu > li > a:hover {
+    color: #979ea2;
+    background: transparent; }
 
 /*# sourceMappingURL=app.css.map */

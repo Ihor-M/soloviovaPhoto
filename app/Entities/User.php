@@ -15,13 +15,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
         'login',
         'email',
         'password',
-        'api_token',
-        'role_id'
     ];
 
     /**
@@ -33,11 +29,4 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function role()
-    {
-        return $this->hasOne(Role::class, 'id', 'role_id');
-    }
 }

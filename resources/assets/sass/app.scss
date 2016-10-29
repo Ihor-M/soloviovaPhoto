@@ -343,3 +343,32 @@ ul.nav.social-media > li > a {
 }
 
 /**--------------End of Validation Error messages---------------**/
+ul.navbar-nav {
+  padding: 0;
+  position: absolute;
+  right: 15px;
+}
+li.dropdown > a {
+  color: $text-color;
+  padding: 10px 20px;
+  min-width: 160px;
+  line-height: 1.6;
+  text-align: right;
+  &:hover {
+    background: transparent;
+    color: $text-color-hover;
+  }
+}
+.nav .open > a:focus {
+  background: transparent;
+  border-right: 1px solid RGBA(0,0,0,0.15);
+  border-left: 1px solid RGBA(0,0,0,0.15);
+}
+ul.dropdown-menu > li > a {
+  color: $text-color;
+  text-align: right;
+  &:hover {
+    color: $text-color-hover;
+    background: transparent;
+  }
+}

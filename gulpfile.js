@@ -15,4 +15,9 @@ require('laravel-elixir-vue-2');
 
 elixir(function(mix) {
     mix.sass('app.scss');
+
+    mix.scripts([
+        "jquery.min.js",
+        "bootstrap.min.js"
+    ]);
 });

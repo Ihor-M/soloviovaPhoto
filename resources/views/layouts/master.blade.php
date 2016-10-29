@@ -16,11 +16,13 @@
         </div>
         <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
             @yield('content')
+            @yield('auth-content')
         </div>
     </div>
     {{--@include('partials.footer')--}}
 </div>
 
+<script src="{{ asset('js/all.js') }}"></script>
 @yield('js')
 </body>
 </html>

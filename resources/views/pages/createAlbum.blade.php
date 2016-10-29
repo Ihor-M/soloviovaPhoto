@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="col-lg-8 col-lg-offset-1">
+    @include('partials.authHeader')
     <h1>Create new album</h1>
     <form action="{{ route('CreateAlbum') }}" method="post" id="createAlbum" class="create-album-form">
         @if(count($errors) > 0)
