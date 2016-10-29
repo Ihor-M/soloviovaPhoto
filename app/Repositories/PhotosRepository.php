@@ -22,4 +22,15 @@ class PhotosRepository extends AbstractRepository
     {
         return $this->model->with('album')->where('album_id', '=', $id)->get();
     }
+
+    /**
+     *
+     * Show first photo from album
+     * @param $id
+     * @return mixed
+     */
+    public function firstPhoto($id)
+    {
+        return $this->model->with('album', 'album.category')->where('album_id', '=', $id)->first();
+    }
 }

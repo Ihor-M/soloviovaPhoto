@@ -9,18 +9,18 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+<section>
+    {{--<div class="row">--}}
+        {{--<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">--}}
             @include('partials.header')
-        </div>
-        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+        {{--</div>--}}
+        <div class="content">
             @yield('content')
             @yield('auth-content')
         </div>
-    </div>
+    {{--</div>--}}
     {{--@include('partials.footer')--}}
-</div>
+</section>
 
 <script src="{{ asset('js/all.js') }}"></script>
 @yield('js')

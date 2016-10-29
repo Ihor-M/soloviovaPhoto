@@ -8,7 +8,7 @@
 @import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 html, body, h1, h2, h3, h4, h5, h6, a, button {
   text-transform: uppercase;
@@ -24,325 +24,42 @@ body {
   background-color: #FFFFFF;
 }
 
-/**-----------Navigation Menu-----------**/
-@mixin nav-background($imgpath, $position: 0 0, $repeat: repeat-y) {
-  background: {
-    image: url($imgpath);
-    position: $position;
-    repeat: $repeat;
-  }
-}
-h1 {
-  color: $text-color;
-  cursor: default;
-  &:hover{
-    color: $text-color-hover;
-  }
-}
-.navigation {
-  position: fixed;
-  margin-left: -15px;
-  width: 200px;
+.content {
+  width: 100%;
   height: 100%;
-  @include nav-background('/images/navbg.jpg');
-}
-.sqv1 {
-  top: 2px;
-  left: 2px;
-  background: #6183ff;
-}
-.sqv2 {
-  top: 2px;
-  right: 2px;
-  background: #ff7494;
-}
-.sqv3 {
-  bottom: 2px;
-  right: 2px;
-  background: #d1ff5f;
-}
-.sqv4 {
-  bottom: 2px;
-  left: 2px;
-  background: #54ffc5;
-}
-.logo-icon {
-  height: 200px;
-  width: 200px;
-  display: inline-block;
-  padding: 0 10px;
   position: relative;
-  .sqv {
-    display: inline-block;
-    position: absolute;
-    transform: rotateZ(45deg);
-    #sqv1, #sqv2, #sqv3, #sqv4 {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      position: absolute;
-      opacity: 0;
-      transition: all 300ms ease;
-    }
-  }
-  .logo {
-    width: 180px;
-    height: 80px;
-    position: absolute;
-    top: calc(50% - 40px);
-    padding-bottom: 5px;
-    //pointer-events: none;
-    .f {
-      stroke: $text-color;
-      transition: all 300ms ease;
-    }
-    .m {
-      fill: $text-color;
-      transition: all 300ms ease;
-    }
-    &:hover {
-      .f {
-        fill: white;
-        stroke: $text-color-hover;
-      }
-      .m {
-        text-shadow: 2px 2px $text-shadow-focus;
-      }
-    }
-  }
-  &:hover {
-    #sqv1, #sqv2, #sqv3, #sqv4 {
-      opacity: 0.7;
-    }
-    .logo-border-top {
-      border-top: 3px solid $text-color-hover;
-      border-left: 3px solid $text-color-hover;
-    }
-    .logo-border-right {
-      border-top: 3px solid $text-color-hover;
-      border-right: 3px solid $text-color-hover;
-    }
-    .logo-border-bottom {
-      border-bottom: 3px solid $text-color-hover;
-      border-right: 3px solid $text-color-hover;
-    }
-    .logo-border-left {
-      border-left: 3px solid $text-color-hover;
-      border-bottom: 3px solid $text-color-hover;
-    }
-
+  padding: 0 200px 0 210px;
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .content {
+    padding-right: 20px;
   }
 }
-.logo-top-bottom-border {
-  width: 50px;
-  height: 50px;
-}
-.logo-left-right-border {
-  width: 34px;
-  height: 34px;
-}
-.logo-border-top {
-  //background: #54ffc5;
-  left: calc(50% - 25px);
-  top: 15px;
-  border-top: 3px solid $text-color;
-  border-left: 3px solid $text-color;
-  border-bottom: 3px solid transparent;
-  border-right: 3px solid transparent;
-}
-.logo-border-right {
-  //background: #d1ff5f;
-  left: calc(100% - 55px);
-  top: calc(50% - 25px);
-  border-top: 3px solid $text-color;
-  border-left: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  border-right: 3px solid $text-color;
-}
-.logo-border-bottom {
-  //background: #ff7494;
-  left: calc(50% - 25px);
-  top: calc(100% - 80px);
-  border-top: 3px solid transparent;
-  border-left: 3px solid transparent;
-  border-bottom: 3px solid $text-color;
-  border-right: 3px solid $text-color;
-}
-.logo-border-left {
-  //background: #6183ff;
-  top: calc(50% - 25px);
-  left: 20px;
-  border-top: 3px solid transparent;
-  border-left: 3px solid $text-color;
-  border-bottom: 3px solid $text-color;
-  border-right: 3px solid transparent;
+@media screen and (min-width: 992px) and (max-width: 1024px) {
+  .content {
+    padding-right: 50px;
+  }
 }
 
+/**-----------------Navigation Menu-------------------**/
 
-/**-------------nav links------------**/
-ul.nav {
-  padding: 0 25px;
-}
-.nav > li > a {
-  padding: 0;
-}
-ul.pages {
-  margin-top: -20px;
-}
-ul.nav.pages > li > a {
-  color: $text-color;
-  transition: all 300ms ease;
-  &:hover, &:focus {
-    color: $text-color-hover;
-    text-shadow: 5px 5px $text-shadow-focus;
-    background: transparent;
-  }
-}
-ul.nav.pages > li:nth-child(1) > a {
-  font-size: 60px;
-  line-height: 60px;
-  letter-spacing: 2px;
-}
-ul.nav.pages > li:nth-child(2) > a {
-  font-size: 85px;
-  line-height: 70px;
-  letter-spacing: 7px;
-}
-ul.nav.pages > li:nth-child(3) > a {
-  font-size: 95px;
-  line-height: 90px;
-  letter-spacing: 6px;
-}
-ul.social-media {
-  margin-top: 25px;
-}
-ul.nav.social-media > li {
-  margin: 12px 0;
-}
-ul.nav.social-media > li > a {
-  background: $text-color;
-  color: white;
-  font-size: 30px;
-  line-height: 30px;
-  padding: 7px 0;
-  text-align: center;
-  transform: skewY(-10deg);
-  transition: all 300ms ease;
-  &:hover, &:focus {
-    background: #2cb9ff;
-  }
-}
+@import "navMenu";
+
 /**--------------End of Navigation menu---------------**/
 
-
 /**---------------------Home Page---------------------**/
-.home-header {
-  display: inline-block;
-  margin: -10px -15px;
-}
-.home-header > h1 {
-  display: inline-block;
-  color: $text-color;
-  font-size: 30px;
-  margin: 15px 0;
-  &:hover {
-    color: $text-color-hover;
-  }
-}
+
+@import 'homePage';
 
 /**-----------------End of Home Page------------------**/
 
+/**----------------Create album page------------------**/
 
-/**----------------Create album page-------------------**/
-.create-album-form {
-  background: #4CA1AF; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #4CA1AF , #C4E0E5); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #4CA1AF , #C4E0E5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  margin-top: 50px;
-  box-shadow: 5px 5px 5px #e3e3e3;
-  padding: 20px;
-  border-radius: 5px;
-  label {
-    font-weight: 300;
-    font-size: 18px;
-    text-transform: capitalize;
-    margin-right: 10px;
-  }
-  .form-group {
-    margin: 10px 0;
-  }
-  input[type="file"] {
-    opacity: 0;
-    position: absolute;
-    z-index: -9999;
-  }
-  .input-file {
-    padding: 5px 12px;
-    color: white;
-    margin: 0;
-    font-size: 16px;
-    border-radius: 4px;
-    background: #6183ff;
-    border: 1px solid #576ad5;
-    cursor: pointer;
-    &:hover {
-      background: #576ad5;
-    }
-  }
-  .submit {
-    text-align: center;
-    margin-top: 30px;
-    input[type='submit'] {
-      font-size: 16px;
-      width: calc(100% - 150px);
-      display: inline-block;
-    }
-  }
-}
-/**----------------End of Create album page-------------------**/
+@import 'createAlbum';
 
+/**-------------End of Create album page--------------**/
 
-/**--------------------Upload Photos Page---------------------**/
-.uploaded-photos {
-  text-align: center;
-  margin-bottom: 50px;
-  h2 {
-    text-align: left;
-  }
-  section {
-    display: inline-block;
-    padding: 6px;
-    text-align: center;
-    div {
-      width: 240px;
-      height: 160px;
-      margin-bottom: 10px;
-      img {
-        height: 100%;
-      }
-    }
-  }
-}
-/**----------------End of Upload Photos Page-------------------**/
-
-
-/**----------------Validation Error messages------------------**/
-
-.validation-errors {
-  list-style: none;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-.message {
-  margin-left: 20px;
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid $brand-danger;
-  text-transform: capitalize;
-}
-
-/**--------------End of Validation Error messages---------------**/
+/**------------------------Authorisation------------------------**/
 ul.navbar-nav {
   padding: 0;
   position: absolute;
@@ -372,3 +89,6 @@ ul.dropdown-menu > li > a {
     background: transparent;
   }
 }
+/**--------------------End of Authorisation----------------------**/
+
+

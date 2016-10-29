@@ -1,0 +1,207 @@
+@mixin nav-background($imgpath, $position: 0 0, $repeat: repeat-y) {
+  background: {
+    image: url($imgpath);
+    position: $position;
+    repeat: $repeat;
+  }
+}
+h1 {
+  color: $text-color;
+  cursor: default;
+  &:hover{
+    color: $text-color-hover;
+  }
+}
+.navigation {
+  position: fixed;
+  //margin-left: -15px;
+  width: 200px;
+  height: 100%;
+  @include nav-background('/images/navbg.jpg');
+}
+.sqv1 {
+  top: 2px;
+  left: 2px;
+  background: #6183ff;
+}
+.sqv2 {
+  top: 2px;
+  right: 2px;
+  background: #ff7494;
+}
+.sqv3 {
+  bottom: 2px;
+  right: 2px;
+  background: #d1ff5f;
+}
+.sqv4 {
+  bottom: 2px;
+  left: 2px;
+  background: #54ffc5;
+}
+.logo-icon {
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+  padding: 0 10px;
+  position: relative;
+  .sqv {
+    display: inline-block;
+    position: absolute;
+    transform: rotateZ(45deg);
+    #sqv1, #sqv2, #sqv3, #sqv4 {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      opacity: 0;
+      transition: all 300ms ease;
+    }
+  }
+  .logo {
+    width: 180px;
+    height: 80px;
+    position: absolute;
+    top: calc(50% - 40px);
+    padding-bottom: 5px;
+    //pointer-events: none;
+    .f {
+      stroke: $text-color;
+      transition: all 300ms ease;
+    }
+    .m {
+      fill: $text-color;
+      transition: all 300ms ease;
+    }
+    &:hover {
+      .f {
+        fill: white;
+        stroke: $text-color-hover;
+      }
+      .m {
+        text-shadow: 2px 2px $text-shadow-focus;
+      }
+    }
+  }
+  &:hover {
+    #sqv1, #sqv2, #sqv3, #sqv4 {
+      opacity: 0.7;
+    }
+    .logo-border-top {
+      border-top: 3px solid $text-color-hover;
+      border-left: 3px solid $text-color-hover;
+    }
+    .logo-border-right {
+      border-top: 3px solid $text-color-hover;
+      border-right: 3px solid $text-color-hover;
+    }
+    .logo-border-bottom {
+      border-bottom: 3px solid $text-color-hover;
+      border-right: 3px solid $text-color-hover;
+    }
+    .logo-border-left {
+      border-left: 3px solid $text-color-hover;
+      border-bottom: 3px solid $text-color-hover;
+    }
+
+  }
+}
+.logo-top-bottom-border {
+  width: 50px;
+  height: 50px;
+}
+.logo-left-right-border {
+  width: 34px;
+  height: 34px;
+}
+.logo-border-top {
+  //background: #54ffc5;
+  left: calc(50% - 25px);
+  top: 15px;
+  border-top: 3px solid $text-color;
+  border-left: 3px solid $text-color;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+.logo-border-right {
+  //background: #d1ff5f;
+  left: calc(100% - 55px);
+  top: calc(50% - 25px);
+  border-top: 3px solid $text-color;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid $text-color;
+}
+.logo-border-bottom {
+  //background: #ff7494;
+  left: calc(50% - 25px);
+  top: calc(100% - 80px);
+  border-top: 3px solid transparent;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid $text-color;
+  border-right: 3px solid $text-color;
+}
+.logo-border-left {
+  //background: #6183ff;
+  top: calc(50% - 25px);
+  left: 20px;
+  border-top: 3px solid transparent;
+  border-left: 3px solid $text-color;
+  border-bottom: 3px solid $text-color;
+  border-right: 3px solid transparent;
+}
+
+
+/**-------------nav links------------**/
+ul.nav {
+  padding: 0 25px;
+}
+.nav > li > a {
+  padding: 0;
+}
+ul.pages {
+  margin-top: -20px;
+}
+ul.nav.pages > li > a {
+  color: $text-color;
+  transition: all 300ms ease;
+  &:hover, &:focus {
+    color: $text-color-hover;
+    text-shadow: 5px 5px $text-shadow-focus;
+    background: transparent;
+  }
+}
+ul.nav.pages > li:nth-child(1) > a {
+  font-size: 60px;
+  line-height: 60px;
+  letter-spacing: 2px;
+}
+ul.nav.pages > li:nth-child(2) > a {
+  font-size: 85px;
+  line-height: 70px;
+  letter-spacing: 7px;
+}
+ul.nav.pages > li:nth-child(3) > a {
+  font-size: 95px;
+  line-height: 90px;
+  letter-spacing: 6px;
+}
+ul.social-media {
+  margin-top: 25px;
+}
+ul.nav.social-media > li {
+  margin: 12px 0;
+}
+ul.nav.social-media > li > a {
+  background: $text-color;
+  color: white;
+  font-size: 30px;
+  line-height: 30px;
+  padding: 7px 0;
+  text-align: center;
+  transform: skewY(-10deg);
+  transition: all 300ms ease;
+  &:hover, &:focus {
+    background: #2cb9ff;
+  }
+}

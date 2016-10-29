@@ -5781,7 +5781,21 @@ input.btn {
 body {
   background-color: #FFFFFF; }
 
-/**-----------Navigation Menu-----------**/
+.content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0 200px 0 210px; }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .content {
+    padding-right: 20px; } }
+
+@media screen and (min-width: 992px) and (max-width: 1024px) {
+  .content {
+    padding-right: 50px; } }
+
+/**-----------------Navigation Menu-------------------**/
 h1 {
   color: #636b6f;
   cursor: default; }
@@ -5790,7 +5804,6 @@ h1 {
 
 .navigation {
   position: fixed;
-  margin-left: -15px;
   width: 200px;
   height: 100%;
   background-image: url("/images/navbg.jpg");
@@ -5967,8 +5980,7 @@ ul.nav.social-media > li > a {
 /**--------------End of Navigation menu---------------**/
 /**---------------------Home Page---------------------**/
 .home-header {
-  display: inline-block;
-  margin: -10px -15px; }
+  display: inline-block; }
 
 .home-header > h1 {
   display: inline-block;
@@ -5978,8 +5990,47 @@ ul.nav.social-media > li > a {
   .home-header > h1:hover {
     color: #979ea2; }
 
+.dropdown-categories {
+  position: relative;
+  width: 155px; }
+  .dropdown-categories span.dropdown-triger {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    padding: 19px 0 19px 15px;
+    display: block; }
+    .dropdown-categories span.dropdown-triger span.arrow-down {
+      margin-left: 5px;
+      display: inline-block;
+      width: 6px;
+      height: 8px;
+      border-top: 6px solid #636b6f;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent; }
+  .dropdown-categories ul {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    list-style: none;
+    position: absolute;
+    top: 63px;
+    opacity: 0;
+    background: #E5E5E5;
+    -webkit-transition: opacity 300ms ease;
+    transition: opacity 300ms ease; }
+    .dropdown-categories ul li a {
+      font-family: 'Raleway', sans-serif;
+      line-height: 1.6;
+      font-size: 14px;
+      padding: 0;
+      color: #636b6f;
+      text-decoration: none; }
+    .dropdown-categories ul li:hover > a {
+      color: #979ea2; }
+  .dropdown-categories:hover ul {
+    opacity: 1; }
+
 /**-----------------End of Home Page------------------**/
-/**----------------Create album page-------------------**/
+/**----------------Create album page------------------**/
 .create-album-form {
   background: #4CA1AF;
   /* fallback for old browsers */
@@ -6022,7 +6073,6 @@ ul.nav.social-media > li > a {
       width: calc(100% - 150px);
       display: inline-block; }
 
-/**----------------End of Create album page-------------------**/
 /**--------------------Upload Photos Page---------------------**/
 .uploaded-photos {
   text-align: center;
@@ -6041,7 +6091,7 @@ ul.nav.social-media > li > a {
         height: 100%; }
 
 /**----------------End of Upload Photos Page-------------------**/
-/**----------------Validation Error messages------------------**/
+/**----------------Validation Error messages-------------------**/
 .validation-errors {
   list-style: none;
   text-align: center;
@@ -6056,6 +6106,8 @@ ul.nav.social-media > li > a {
   text-transform: capitalize; }
 
 /**--------------End of Validation Error messages---------------**/
+/**-------------End of Create album page--------------**/
+/**------------------------Authorisation------------------------**/
 ul.navbar-nav {
   padding: 0;
   position: absolute;
@@ -6082,5 +6134,7 @@ ul.dropdown-menu > li > a {
   ul.dropdown-menu > li > a:hover {
     color: #979ea2;
     background: transparent; }
+
+/**--------------------End of Authorisation----------------------**/
 
 /*# sourceMappingURL=app.css.map */

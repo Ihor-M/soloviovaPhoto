@@ -13,22 +13,22 @@ class CreateAlbumController extends Controller
     /**
      * @var AlbumRepository
      */
-    private $albumRepo;
+    private $albumRepository;
 
     /**
      * @var PhotosRepository
      */
-    private $photosRepo;
+    private $photosRepository;
 
     /**
      * CreateAlbumController constructor.
-     * @param AlbumRepository $albumRepo
-     * @param PhotosRepository $photosRepo
+     * @param AlbumRepository $albumRepository
+     * @param PhotosRepository $photosRepository
      */
-    public function __construct(AlbumRepository $albumRepo, PhotosRepository $photosRepo)
+    public function __construct(AlbumRepository $albumRepository, PhotosRepository $photosRepository)
     {
-        $this->albumRepo = $albumRepo;
-        $this->photosRepo = $photosRepo;
+        $this->albumRepository = $albumRepository;
+        $this->photosRepository = $photosRepository;
     }
 
     /**
@@ -36,7 +36,8 @@ class CreateAlbumController extends Controller
      */
     public function showCreateAlbumForm()
     {
-        $albums = $this->albumRepo->allAlbums();
+        $albums = $this->albumRepository->allAlbums();
+
         return view('pages.createAlbum', compact('albums'));
     }
 
@@ -52,7 +53,7 @@ class CreateAlbumController extends Controller
             'category' => 'required|integer'
         ]);
 
-        $newAlbum = $this->albumRepo->create([
+        $newAlbum = $this->albumRepository->create([
             'name' => $request->albumName,
             'shot_date' => $request->shotDate,
             'category_id' => $request->category
@@ -68,7 +69,8 @@ class CreateAlbumController extends Controller
      */
     public function editAlbum($id)
     {
-        $album = $this->albumRepo->getById($id);
+        $album = $this->albumRepository->getById($id);
+
         return view('pages.editAlbum', compact('album'));
     }
 
@@ -80,7 +82,7 @@ class CreateAlbumController extends Controller
             'category' => 'required|integer'
         ]);
 
-        $this->albumRepo->update($id, [
+        $this->albumRepository->update($id, [
             'name' => $request->albumName,
             'shot_date' => $request->shotDate,
             'category_id' => $request->category
@@ -95,8 +97,9 @@ class CreateAlbumController extends Controller
      */
     public function showUploadForm($id)
     {
-        $album = $this->albumRepo->getById($id);
-        $photoInAlbum = $this->photosRepo->showPhotos($id);
+        $album = $this->albumRepository->getById($id);
+        $photoInAlbum = $this->photosRepository->showPhotos($id);
+
         return view('pages.uploadForm', compact('album', 'photoInAlbum'));
     }
 
@@ -124,7 +127,7 @@ class CreateAlbumController extends Controller
         try {
             if($request->hasFile('newPhotos'))
             {
-                $album = $this->albumRepo->getById($request->get('albumId'));
+                $album = $this->albumRepository->getById($request->get('albumId'));
                 $photos = $request->file('newPhotos');
                 foreach ($photos as $photo)
                 {
@@ -143,7 +146,7 @@ class CreateAlbumController extends Controller
                         Image::make($photo)->fit(520, 780)->save($filePath);
                     }
                     // save to data base
-                    $newPhoto = $this->photosRepo->create([
+                    $newPhoto = $this->photosRepository->create([
                         'photo_path' => $filePath,
                         'photo_name' => $fileName,
                         'album_id' => $request->get('albumId')
@@ -158,23 +161,6 @@ class CreateAlbumController extends Controller
         return redirect(url('admin-upload-photos/' . $request->get('albumId')))->with(['alert' => $alert]);
     }
 
-    public function showAlbum($id)
-    {
-        $album = $this->albumRepo->album($id);
-
-        return ;
-    }
-
-    public function allAlbums()
-    {
-
-    }
-
-    public function categoryAlbum($catId)
-    {
-
-    }
-
     /**
      *
      * Delete album with his photos
@@ -183,14 +169,14 @@ class CreateAlbumController extends Controller
      */
     public function delete($id)
     {
-        $photosInAlbum = $this->photosRepo->showPhotos($id);
+        $photosInAlbum = $this->photosRepository->showPhotos($id);
         foreach ($photosInAlbum as $photo)
         {
             unlink(public_path('images/albums/' . $photo->photo_name));
-            $this->photosRepo->delete($photo->id);
+            $this->photosRepository->delete($photo->id);
         }
 
-        $this->albumRepo->delete($id);
+        $this->albumRepository->delete($id);
 
         return redirect()->route('showCreateAlbumForm');
     }
@@ -203,9 +189,9 @@ class CreateAlbumController extends Controller
      */
     public function deletePhoto($id)
     {
-        $photo = $this->photosRepo->getById($id);
+        $photo = $this->photosRepository->getById($id);
         unlink(public_path('images/albums/' . $photo->photo_name));
-        $this->photosRepo->delete($id);
+        $this->photosRepository->delete($id);
 
         return redirect()->back();
     }
