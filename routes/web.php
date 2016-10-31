@@ -17,6 +17,7 @@ Route::group(['namespace' => 'V1'], function () {
     Route::get('photos', 'MainController@photos')->name('Photos');
     Route::get('blog', 'MainController@blog')->name('Blog');
     Route::get('info', 'MainController@info')->name('Info');
+    Route::get('album/{id}', 'MainController@showAlbum')->name('showAlbum');
 });
 
 Route::group(['namespace' => 'V1', 'middleware' => 'auth'], function () {

@@ -17,6 +17,7 @@ h1 {
   //margin-left: -15px;
   width: 200px;
   height: 100%;
+  z-index: 9999;
   @include nav-background('/images/navbg.jpg');
 }
 .sqv1 {

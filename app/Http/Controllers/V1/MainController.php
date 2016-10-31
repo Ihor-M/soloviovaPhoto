@@ -34,8 +34,8 @@ class MainController extends Controller
      * @param CategoriesRepository $categoriesRepository
      */
     public function __construct(AlbumRepository $albumRepository,
-                                   PhotosRepository $photosRepository,
-                                   CategoriesRepository $categoriesRepository)
+                                PhotosRepository $photosRepository,
+                                CategoriesRepository $categoriesRepository)
     {
         $this->albumRepository = $albumRepository;
         $this->photosRepository = $photosRepository;
@@ -76,5 +76,16 @@ class MainController extends Controller
     public function info()
     {
         return view('pages.info');
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAlbum($id)
+    {
+        $album = $this->albumRepository->album($id);
+
+        return view('pages.album', compact('album'));
     }
 }
