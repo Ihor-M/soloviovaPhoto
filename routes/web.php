@@ -14,10 +14,12 @@ Auth::routes();
 
 Route::group(['namespace' => 'V1'], function () {
     Route::get('/', 'MainController@home')->name('Home');
-    Route::get('photos', 'MainController@photos')->name('Photos');
+//    Route::get('photos/wedding', 'MainController@photos')->name('Photos');
     Route::get('blog', 'MainController@blog')->name('Blog');
     Route::get('info', 'MainController@info')->name('Info');
+    Route::get('contact', 'MainController@contact')->name('Contact');
     Route::get('album/{id}', 'MainController@showAlbum')->name('showAlbum');
+    Route::get('photos/{category}', 'CategoriesController@category')->name('Category');
 });
 
 Route::group(['namespace' => 'V1', 'middleware' => 'auth'], function () {

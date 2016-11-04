@@ -28,7 +28,7 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 0 200px 0 210px;
+  padding: 69px 200px 0 210px;
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .content {
@@ -41,25 +41,12 @@ body {
   }
 }
 
-/**-----------------Navigation Menu-------------------**/
-
-@import "navMenu";
-
-/**--------------End of Navigation menu---------------**/
-
-/**---------------------Home Page---------------------**/
-
-@import 'homePage';
-
-/**-----------------End of Home Page------------------**/
-
-/**----------------Create album page------------------**/
-
-@import 'createAlbum';
-
-/**-------------End of Create album page--------------**/
-
-@import 'albumPage';
+@import "navMenu"; //Navigation Menu
+@import 'homePage'; //Home Page
+@import 'createAlbum'; //Create album page
+@import 'albumPage'; // Show album page
+@import 'photosPage'; // Photos page
+@import 'slider'; // Slider
 
 /**------------------------Authorisation------------------------**/
 ul.navbar-nav {

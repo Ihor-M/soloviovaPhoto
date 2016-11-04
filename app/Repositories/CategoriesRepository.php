@@ -22,4 +22,13 @@ class CategoriesRepository extends AbstractRepository
     {
         return $this->model->with('albums', 'albums.photos')->get();
     }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function categoryAlbums($name)
+    {
+        return $this->model->with('albums', 'albums.photos')->where('name', $name)->get();
+    }
 }

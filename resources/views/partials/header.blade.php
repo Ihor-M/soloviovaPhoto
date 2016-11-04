@@ -17,13 +17,13 @@
         </a>
     </div>
     <ul class="nav pages">
-        <li><a href="{{route('Photos')}}">Photos</a></li>
+        <li><a href="{{asset('photos/' . 'wedding')}}">Photos</a></li>
         <li><a href="{{route('Blog')}}">Blog</a></li>
         <li><a href="{{route('Info')}}">Info</a></li>
     </ul>
     <ul class="nav social-media">
         <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="https://www.instagram.com/olena9512/">Instagram</a></li>
+        <li><a href="{{route('Contact')}}">Contact</a></li>
     </ul>
 </div>

@@ -9,7 +9,7 @@
             <span class="dropdown-triger">Categories <span class="arrow-down"></span></span>
             <ul class="categories">
                 @foreach($albumsInCategory as $category)
-                    <li><a href="{{ asset($category->name . '/') }}">{{ $category->name }}</a></li>
+                    <li><a href="{{ asset('photos/' . $category->name) }}">{{ $category->name }}</a></li>
                 @endforeach
             </ul>
         </div>

@@ -42,7 +42,9 @@ class MainController extends Controller
         $this->categoriesRepository = $categoriesRepository;
     }
 
-
+    /**
+     * @return $albumsInCategory, $titlePhotos
+     */
     public function home()
     {
         $albumsInCategory = $this->categoriesRepository->albums();
@@ -62,10 +64,15 @@ class MainController extends Controller
             'titlePhotos' => $titlePhotos
         ]);
     }
-    
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function photos()
     {
-        return view('pages.photos');
+        $category = 'wedding';
+
+        return view('pages.' . $category, compact('category'));
     }
     
     public function blog()
@@ -87,5 +94,13 @@ class MainController extends Controller
         $album = $this->albumRepository->album($id);
 
         return view('pages.album', compact('album'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function contact()
+    {
+        return view('pages.contact');
     }
 }

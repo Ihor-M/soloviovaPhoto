@@ -5785,7 +5785,7 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 0 200px 0 210px; }
+  padding: 69px 200px 0 210px; }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .content {
@@ -5795,7 +5795,6 @@ body {
   .content {
     padding-right: 50px; } }
 
-/**-----------------Navigation Menu-------------------**/
 h1 {
   color: #636b6f;
   cursor: default; }
@@ -5804,6 +5803,8 @@ h1 {
 
 .navigation {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 200px;
   height: 100%;
   z-index: 9999;
@@ -5978,8 +5979,13 @@ ul.nav.social-media > li > a {
   ul.nav.social-media > li > a:hover, ul.nav.social-media > li > a:focus {
     background: #2cb9ff; }
 
-/**--------------End of Navigation menu---------------**/
-/**---------------------Home Page---------------------**/
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  width: 900px;
+  background: white;
+  z-index: 100; }
+
 .home-header {
   display: inline-block; }
 
@@ -5998,7 +6004,8 @@ ul.nav.social-media > li > a {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     padding: 19px 0 19px 15px;
-    display: block; }
+    display: block;
+    cursor: pointer; }
     .dropdown-categories span.dropdown-triger span.arrow-down {
       margin-left: 5px;
       display: inline-block;
@@ -6030,9 +6037,6 @@ ul.nav.social-media > li > a {
       color: #979ea2; }
   .dropdown-categories:hover ul {
     opacity: 1; }
-
-.main-gallery {
-  margin: 30px 0 60px 0; }
 
 .album-title {
   display: inline-block;
@@ -6077,8 +6081,6 @@ ul.nav.social-media > li > a {
     font-size: 22px;
     cursor: default; }
 
-/**-----------------End of Home Page------------------**/
-/**----------------Create album page------------------**/
 .create-album-form {
   background: #4CA1AF;
   /* fallback for old browsers */
@@ -6154,7 +6156,6 @@ ul.nav.social-media > li > a {
   text-transform: capitalize; }
 
 /**--------------End of Validation Error messages---------------**/
-/**-------------End of Create album page--------------**/
 .album {
   text-align: center;
   margin-bottom: 50px; }
@@ -6162,6 +6163,52 @@ ul.nav.social-media > li > a {
 .photo {
   margin-bottom: 30px;
   background: #979ea2; }
+
+.categories {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  padding-top: 18px; }
+  .categories li {
+    margin-right: 20px;
+    display: inline-block;
+    text-align: center; }
+    .categories li a {
+      text-decoration: none;
+      padding: 5px 10px;
+      font-size: 20px;
+      color: #636b6f;
+      -webkit-transition: all 300ms ease-in-out;
+      transition: all 300ms ease-in-out;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+      .categories li a:hover {
+        background: #E5E5E5;
+        color: #FF00D2; }
+
+.categories > li:nth-child(4) {
+  margin-right: 0; }
+
+#category-focus {
+  background: #E5E5E5;
+  color: #FF00D2; }
+
+.slider {
+  text-align: center;
+  position: relative;
+  width: 900px;
+  height: 600px;
+  margin-bottom: 50px; }
+  .slider .slide {
+    width: 900px;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    background: #E5E5E5; }
+    .slider .slide .image {
+      height: 600px; }
 
 /**------------------------Authorisation------------------------**/
 ul.navbar-nav {
