@@ -43,17 +43,17 @@ class CategoriesController extends Controller
         // select specific category with its albums
         $categoryWithAlbums = $this->categoriesRepository->categoryAlbums($category);
         // create array of album title photos
-        $titlePhoto = [];
+        $titlePhotos = [];
         foreach ($categoryWithAlbums as $albums)
         {
             $albumsInCategory = $albums->albums;
             // get album id
             foreach ($albumsInCategory as $album)
             {
-                array_push($titlePhoto, $this->photosRepository->firstPhoto($album->id));
+                array_push($titlePhotos, $this->photosRepository->firstPhoto($album->id));
             }
         }
 
-        return view('pages.' . $category, compact('albumsInCategory', 'category', 'photosInCategory', 'titlePhoto'));
+        return view('pages.' . $category, compact('albumsInCategory', 'category', 'photosInCategory', 'titlePhotos'));
     }
 }

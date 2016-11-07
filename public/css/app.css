@@ -6038,6 +6038,9 @@ ul.nav.social-media > li > a {
   .dropdown-categories:hover ul {
     opacity: 1; }
 
+.main-gallery {
+  margin-bottom: 160px; }
+
 .album-title {
   display: inline-block;
   float: left; }
@@ -6193,22 +6196,38 @@ ul.nav.social-media > li > a {
   background: #E5E5E5;
   color: #FF00D2; }
 
-.slider {
+.wedding-hover {
+  background-color: RGBA(255, 0, 210, 0.85); }
+
+.couples-hover {
+  background-color: RGBA(3, 237, 237, 0.85); }
+
+.family-hover {
+  background-color: RGBA(166, 126, 57, 0.85); }
+
+.lifestyle-hover {
+  background-color: RGBA(195, 231, 0, 0.85); }
+
+#slider {
   text-align: center;
   position: relative;
   width: 900px;
   height: 600px;
   margin-bottom: 50px; }
-  .slider .slide {
+  #slider .slide {
     width: 900px;
     height: 600px;
     position: absolute;
     top: 0;
     left: 0;
     display: inline-block;
-    background: #E5E5E5; }
-    .slider .slide .image {
+    background: white;
+    z-index: 1; }
+    #slider .slide .image {
       height: 600px; }
+
+#slider .top {
+  z-index: 2; }
 
 /**------------------------Authorisation------------------------**/
 ul.navbar-nav {

@@ -22,7 +22,7 @@
         <li><a href="{{route('Info')}}">Info</a></li>
     </ul>
     <ul class="nav social-media">
-        <li><a href="#">Facebook</a></li>
+        <li><a href="https://www.facebook.com/Soloviova-PHOTO-583647855153675/?fref=ts">Facebook</a></li>
         <li><a href="https://www.instagram.com/olena9512/">Instagram</a></li>
         <li><a href="{{route('Contact')}}">Contact</a></li>
     </ul>

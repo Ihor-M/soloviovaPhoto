@@ -1,4 +1,4 @@
-.slider {
+#slider {
   text-align: center;
   position: relative;
   width: 900px;
@@ -12,10 +12,16 @@
     top: 0;
     left: 0;
     display: inline-block;
-    background: $dropdown-background;
+    background: white;
+    z-index: 1;
 
     .image {
       height: 600px;
     }
   }
 }
+
+#slider .top {
+  z-index: 2    ;
+}
+

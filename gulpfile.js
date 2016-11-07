@@ -18,6 +18,7 @@ elixir(function(mix) {
 
     mix.scripts([
         "jquery.min.js",
-        "bootstrap.min.js"
+        "bootstrap.min.js",
+        "slider.js"
     ]);
 });

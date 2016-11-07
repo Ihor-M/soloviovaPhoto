@@ -23,6 +23,5 @@
 </section>
 
 <script src="{{ asset('js/all.js') }}"></script>
-@yield('js')
 </body>
 </html>
