@@ -77,7 +77,21 @@ class MainController extends Controller
     
     public function blog()
     {
-        return view('pages.blog');
+        $albumsInCategory = $this->categoriesRepository->albums();
+        $albums = $this->albumRepository->allAlbums();
+        $titlePhotos = [];
+        foreach ($albums as $album)
+        {
+            $albumId = $album->id;
+            array_push($titlePhotos, $this->photosRepository->firstPhoto($albumId));
+        }
+
+        return view('pages.blog')->with([
+            'albumsInCategory' => $albumsInCategory,
+            'albums' => $albums,
+            'titlePhotos' => $titlePhotos
+        ]);
+
     }
     
     public function info()

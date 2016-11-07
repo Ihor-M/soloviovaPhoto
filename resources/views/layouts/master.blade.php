@@ -10,16 +10,14 @@
 </head>
 <body>
 <section>
-    {{--<div class="row">--}}
-        {{--<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">--}}
-            @include('partials.header')
-        {{--</div>--}}
-        <div class="content">
-            @yield('content')
-            @yield('auth-content')
-        </div>
-    {{--</div>--}}
-    {{--@include('partials.footer')--}}
+    @include('partials.header')
+
+    <div class="content">
+        @yield('content')
+        @yield('auth-content')
+    </div>
+
+    @include('partials.footer')
 </section>
 
 <script src="{{ asset('js/all.js') }}"></script>

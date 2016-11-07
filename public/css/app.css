@@ -5781,6 +5781,9 @@ input.btn {
 body {
   background-color: #FFFFFF; }
 
+section {
+  position: relative; }
+
 .content {
   width: 100%;
   height: 100%;
@@ -5991,11 +5994,13 @@ ul.nav.social-media > li > a {
 
 .home-header > h1 {
   display: inline-block;
-  color: #636b6f;
   font-size: 30px;
   margin: 15px 0; }
-  .home-header > h1:hover {
-    color: #979ea2; }
+  .home-header > h1 a {
+    text-decoration: none;
+    color: #636b6f; }
+    .home-header > h1 a:hover {
+      color: #979ea2; }
 
 .dropdown-categories {
   position: relative;
@@ -6020,12 +6025,13 @@ ul.nav.social-media > li > a {
     text-align: left;
     list-style: none;
     position: absolute;
-    z-index: 9999;
+    z-index: -10;
     top: 63px;
+    visibility: hidden;
     opacity: 0;
     background: #E5E5E5;
-    -webkit-transition: opacity 300ms ease;
-    transition: opacity 300ms ease; }
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out; }
     .dropdown-categories ul li a {
       font-family: 'Raleway', sans-serif;
       line-height: 1.6;
@@ -6035,8 +6041,11 @@ ul.nav.social-media > li > a {
       text-decoration: none; }
     .dropdown-categories ul li:hover > a {
       color: #979ea2; }
-  .dropdown-categories:hover ul {
-    opacity: 1; }
+
+.dropdown-categories:hover .categories {
+  visibility: visible;
+  opacity: 1;
+  z-index: 9999; }
 
 .main-gallery {
   margin-bottom: 160px; }
@@ -6228,6 +6237,98 @@ ul.nav.social-media > li > a {
 
 #slider .top {
   z-index: 2; }
+
+.blog-gallery {
+  text-align: center; }
+
+.blog-albums {
+  text-align: center;
+  width: 900px;
+  height: 600px;
+  margin-bottom: 100px;
+  position: relative; }
+  .blog-albums img {
+    height: 100%; }
+  .blog-albums .album-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    text-align: left; }
+    .blog-albums .album-header h1 {
+      font-size: 60px;
+      margin: 0 20px;
+      display: inline-block;
+      float: right; }
+      .blog-albums .album-header h1:hover {
+        color: white; }
+      .blog-albums .album-header h1 a {
+        color: white;
+        text-decoration: none; }
+    .blog-albums .album-header .album-header-ul {
+      list-style: none;
+      display: inline-block;
+      margin: 0;
+      padding: 0; }
+      .blog-albums .album-header .album-header-ul li {
+        margin: 10px 0 0 20px;
+        color: white;
+        font-size: 12px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+        .blog-albums .album-header .album-header-ul li a {
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          color: white; }
+
+.blog-gallery .my-pagination .pagination {
+  display: inline-block;
+  float: left;
+  margin: 0 20px; }
+  .blog-gallery .my-pagination .pagination li {
+    padding: 0; }
+    .blog-gallery .my-pagination .pagination li a {
+      background: transparent;
+      border: none;
+      color: #636b6f;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      padding: 0 5px;
+      margin-left: 10px; }
+      .blog-gallery .my-pagination .pagination li a:hover {
+        color: #979ea2; }
+  .blog-gallery .my-pagination .pagination li.active span {
+    background: #636b6f;
+    border: none;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0 5px;
+    margin-left: 10px; }
+  .blog-gallery .my-pagination .pagination li.disabled span {
+    border: none;
+    padding: 0 5px;
+    margin-left: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.footer {
+  display: inline-block;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  padding: 0 200px;
+  text-align: right; }
+  .footer a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 10px 0;
+    margin: 0 20px;
+    color: #636b6f;
+    text-decoration: none;
+    text-transform: capitalize; }
+    .footer a:hover {
+      color: #979ea2; }
+  .footer span.year {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-right: 30px; }
 
 /**------------------------Authorisation------------------------**/
 ul.navbar-nav {
