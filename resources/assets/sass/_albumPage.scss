@@ -1,8 +1,14 @@
 .album {
+  position: relative;
   text-align: center;
-  margin-bottom: 50px;
+  width: 900px;
 }
 .photo {
+  width: 900px;
+  height: 600px;
   margin-bottom: 30px;
-  background: $text-color-hover;
+
+  img {
+    height: 600px;
+  }
 }

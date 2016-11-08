@@ -30,7 +30,7 @@ section {
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 69px 200px 0 210px;
+  padding: 69px 200px 200px 210px;
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .content {
@@ -43,14 +43,15 @@ section {
   }
 }
 
-@import "navMenu"; // Navigation Menu
-@import 'homePage'; // Home Page
-@import 'createAlbum'; // Create album page
-@import 'albumPage'; // Show album page
-@import 'photosPage'; // Photos page
-@import 'slider'; // Slider
-@import 'blogPage.scss'; // Blog page
-@import 'footer.scss'; // Footer
+@import "navMenu";      //  Navigation Menu
+@import 'homePage';     //  Home Page
+@import 'createAlbum';  //  Create album page
+@import 'albumPage';    //  Show album page
+@import 'photosPage';   //  Photos page
+@import 'slider';       //  Slider
+@import 'blogPage';     //  Blog page
+@import 'infoPage';     //  Info page
+@import 'footer';       //  Footer
 
 /**------------------------Authorisation------------------------**/
 ul.navbar-nav {

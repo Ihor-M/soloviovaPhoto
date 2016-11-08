@@ -74,7 +74,10 @@ class MainController extends Controller
 
         return view('pages.' . $category, compact('category'));
     }
-    
+
+    /**
+     * @return $albumsInCategory, $albums, $titlePhotos
+     */
     public function blog()
     {
         $albumsInCategory = $this->categoriesRepository->albums();

@@ -11,51 +11,53 @@
   img {
     height: 100%;
   }
+}
+.album-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
 
-  .album-header {
-    position: absolute;
-    top: 0;
-    left: 0;
+  h1 {
+    font-size: 60px;
+    margin: 0 20px;
     display: inline-block;
-    width: 100%;
-    text-align: left;
+    float: right;
+    color: white;
 
-    h1 {
-      font-size: 60px;
-      margin: 0 20px;
-      display: inline-block;
-      float: right;
-
-      &:hover {
-        color: white;
-      }
-
-      a {
-        color: white;
-        text-decoration: none;
-      }
+    &:hover {
+      color: white;
     }
 
-    .album-header-ul {
-      list-style: none;
-      display: inline-block;
-      margin: 0;
-      padding: 0;
-
-      li {
-        margin: 10px 0 0 20px;
-        color: white;
-        font-size: 12px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-        a {
-          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-          color: white;
-        }
-      }
+    a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
     }
   }
 }
+.album-header-ul {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 10px 0 0 20px;
+    color: white;
+    font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    a {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: white;
+    }
+  }
+}
+
+
 
 .blog-gallery {
   .my-pagination {

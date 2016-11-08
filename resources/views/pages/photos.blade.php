@@ -3,7 +3,7 @@
 @section('content')
 <div class="fixed-nav">
     <div class="home-header">
-        <h1 class="home-header">Olena Soloviova photography</h1>
+        <h1 class="home-header"><a href="{{ asset('/') }}">Soloviova photography</a></h1>
     </div>
     <div class="photo-categories pull-right">
         <ul class="categories">

@@ -5788,7 +5788,7 @@ section {
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 69px 200px 0 210px; }
+  padding: 69px 200px 200px 210px; }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .content {
@@ -6047,9 +6047,6 @@ ul.nav.social-media > li > a {
   opacity: 1;
   z-index: 9999; }
 
-.main-gallery {
-  margin-bottom: 160px; }
-
 .album-title {
   display: inline-block;
   float: left; }
@@ -6169,12 +6166,16 @@ ul.nav.social-media > li > a {
 
 /**--------------End of Validation Error messages---------------**/
 .album {
+  position: relative;
   text-align: center;
-  margin-bottom: 50px; }
+  width: 900px; }
 
 .photo {
-  margin-bottom: 30px;
-  background: #979ea2; }
+  width: 900px;
+  height: 600px;
+  margin-bottom: 30px; }
+  .photo img {
+    height: 600px; }
 
 .categories {
   list-style: none;
@@ -6249,36 +6250,40 @@ ul.nav.social-media > li > a {
   position: relative; }
   .blog-albums img {
     height: 100%; }
-  .blog-albums .album-header {
-    position: absolute;
-    top: 0;
-    left: 0;
+
+.album-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  text-align: left; }
+  .album-header h1 {
+    font-size: 60px;
+    margin: 0 20px;
     display: inline-block;
-    width: 100%;
-    text-align: left; }
-    .blog-albums .album-header h1 {
-      font-size: 60px;
-      margin: 0 20px;
-      display: inline-block;
-      float: right; }
-      .blog-albums .album-header h1:hover {
-        color: white; }
-      .blog-albums .album-header h1 a {
-        color: white;
-        text-decoration: none; }
-    .blog-albums .album-header .album-header-ul {
-      list-style: none;
-      display: inline-block;
-      margin: 0;
-      padding: 0; }
-      .blog-albums .album-header .album-header-ul li {
-        margin: 10px 0 0 20px;
-        color: white;
-        font-size: 12px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-        .blog-albums .album-header .album-header-ul li a {
-          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-          color: white; }
+    float: right;
+    color: white; }
+    .album-header h1:hover {
+      color: white; }
+    .album-header h1 a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer; }
+
+.album-header-ul {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0; }
+  .album-header-ul li {
+    margin: 10px 0 0 20px;
+    color: white;
+    font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    .album-header-ul li a {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: white; }
 
 .blog-gallery .my-pagination .pagination {
   display: inline-block;
@@ -6312,7 +6317,7 @@ ul.nav.social-media > li > a {
   display: inline-block;
   width: 100%;
   position: absolute;
-  bottom: 0;
+  top: 100%;
   left: 0;
   z-index: 10000;
   padding: 0 200px;
