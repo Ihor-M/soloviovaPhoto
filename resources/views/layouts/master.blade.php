@@ -17,7 +17,7 @@
         @yield('auth-content')
     </div>
 
-    @include('partials.footer')
+{{--    @include('partials.footer')--}}
 </section>
 
 <script src="{{ asset('js/all.js') }}"></script>

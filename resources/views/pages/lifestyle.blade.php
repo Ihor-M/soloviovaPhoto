@@ -20,6 +20,7 @@
     </div>
     <div class="main-gallery">
         @foreach($titlePhotos as $titlePhoto)
+            @if(isset($titlePhoto))
             <div class="album-title">
                 <div class="image">
                     <img src="{{ asset('images/albums/' . $titlePhoto->photo_name) }}"
@@ -34,6 +35,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         @endforeach
         <div class="clearfix"></div>
     </div>

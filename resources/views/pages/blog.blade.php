@@ -5,6 +5,7 @@
 
     <div class="blog-gallery">
         @foreach($titlePhotos as $photo)
+            @if(isset($photo))
         <div class="blog-albums">
             <div class="album-header"
                  @if($photo->album->category->id == 1) style="{{ 'background-color: RGBA(255,0,210,0.85)' }}"
@@ -26,6 +27,7 @@
             </div>
             <img src="{{ asset('images/albums/' . $photo->photo_name) }}" alt="Photo: {{ $photo->photo_name }}">
         </div>
+            @endif
         @endforeach
         <div class="my-pagination">
             {{ $albums }}
