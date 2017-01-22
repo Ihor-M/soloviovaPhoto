@@ -2,6 +2,6 @@
 
 @section('info')
 
-contact page
+    happy page
 
 @endsection
