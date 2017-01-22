@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 class MainController extends Controller
 {
@@ -109,8 +110,14 @@ class MainController extends Controller
     public function showAlbum($id)
     {
         $album = $this->albumRepository->album($id);
+        $photoDimensions = [];
+        foreach ($album->photos as $photo) {
+            $exifData = Image::make($photo->photo_path)->exif();
+            $dimensions = $exifData['COMPUTED'];
+            array_push($photoDimensions, $dimensions);
+        }
 
-        return view('pages.album', compact('album'));
+        return view('pages.album', compact('album', 'photoDimensions'));
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="col-lg-8 col-lg-offset-1">
+<div class="col-lg-9 col-lg-offset-1">
     @include('partials.authHeader')
     <h1>Create new album</h1>
     <form action="{{ route('CreateAlbum') }}" method="post" id="createAlbum" class="create-album-form">
@@ -42,7 +42,7 @@
     </form>
 </div>
 @if(!$albums->isEmpty())
-    <div class="col-lg-8 col-lg-offset-1">
+    <div class="col-lg-9 col-lg-offset-1">
         <br>
         <table class="table table-responsive table-striped">
             <tr class="bg-info">
@@ -83,7 +83,7 @@
         </table>
     </div>
 @endif
-
+<div class="clearfix"></div>
 @endsection
 
 

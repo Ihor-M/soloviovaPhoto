@@ -50,6 +50,7 @@
             @endif
         </div>
     </div>
+    <div class="clearfix"></div>
 @endsection
 
 {{--@section('js')--}}

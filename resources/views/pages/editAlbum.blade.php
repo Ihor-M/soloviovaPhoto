@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="col-lg-8 col-lg-offset-1">
+    <div class="col-lg-9 col-lg-offset-1">
         @include('partials.authHeader')
         <h1>Update album: {{ $album->name }}</h1>
         <a href="{{asset('admin-create-album')}}">Back to albums list</a>
@@ -43,6 +43,7 @@
             </div>
         </form>
     </div>
+    <div class="clearfix"></div>
 @endsection
 
 

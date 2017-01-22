@@ -122,40 +122,42 @@ class CreateAlbumController extends Controller
         if ($requestSize > 20000000)
         {
             $alert = "Please choose files less than 20Mb in total.";
-        }
-        // save photos
-        try {
-            if($request->hasFile('newPhotos'))
-            {
-                $album = $this->albumRepository->getById($request->get('albumId'));
-                $photos = $request->file('newPhotos');
-                foreach ($photos as $photo)
+        } else {
+            // save photos
+            try {
+                if($request->hasFile('newPhotos'))
                 {
-                    $fileName = preg_replace('/\s+/', '', $album->name)
-                                . str_random(5)
-                                . '.'
-                                . $photo->getClientOriginalExtension();
-                    $filePath = public_path('images/albums/' . $fileName);
-                    // check image orientation and resize it
-                    $exifData = Image::make($photo)->exif();
-                    $dimensions = $exifData['COMPUTED'];
-                    if ($dimensions['Width'] > $dimensions['Height'])
+                    $album = $this->albumRepository->getById($request->get('albumId'));
+                    $photos = $request->file('newPhotos');
+                    foreach ($photos as $photo)
                     {
-                        Image::make($photo)->fit(780, 520)->save($filePath);
-                    } else {
-                        Image::make($photo)->fit(520, 780)->save($filePath);
+                        $fileName = preg_replace('/\s+/', '', $album->name)
+                            . str_random(5)
+                            . '.'
+                            . $photo->getClientOriginalExtension();
+                        $filePath = public_path('images/albums/' . $fileName);
+                        // check image orientation and resize it
+                        $exifData = Image::make($photo)->exif();
+
+                        $dimensions = $exifData['COMPUTED'];
+                        if ($dimensions['Width'] > $dimensions['Height'])
+                        {
+                            Image::make($photo)->fit(1200, 800)->save($filePath);
+                        } else {
+                            Image::make($photo)->fit(800, 1200)->save($filePath);
+                        }
+                        // save to data base
+                        $newPhoto = $this->photosRepository->create([
+                            'photo_path' => $filePath,
+                            'photo_name' => $fileName,
+                            'album_id' => $request->get('albumId')
+                        ]);
+                        $newPhoto->save();
                     }
-                    // save to data base
-                    $newPhoto = $this->photosRepository->create([
-                        'photo_path' => $filePath,
-                        'photo_name' => $fileName,
-                        'album_id' => $request->get('albumId')
-                    ]);
-                    $newPhoto->save();
                 }
+            } catch (\Exception $e) {
+                dd($e);
             }
-        } catch (\Exception $e) {
-            dd($e);
         }
 
         return redirect(url('admin-upload-photos/' . $request->get('albumId')))->with(['alert' => $alert]);

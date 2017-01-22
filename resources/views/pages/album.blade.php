@@ -25,12 +25,20 @@
             </ul>
             <h1>{{ $album->name }}</h1>
         </div>
+{{--        @foreach($album->photos as $photo)--}}
 
-        @foreach($album->photos as $photo)
-        <div class="photo">
-            <img src="{{ asset('images/albums/' . $photo->photo_name) }}" alt="{{ $photo->photo_name }}">
-        </div>
-        @endforeach
+        @for($i = 0; $i <= count($album->photos) - 1; $i++)
+            @if($photoDimensions[$i]['Width'] > $photoDimensions[$i]['Height'])
+                <div class="photo">
+                    <img src="{{ asset('images/albums/' . $album->photos[$i]->photo_name) }}" alt="{{ $album->photos[$i]->photo_name }}">
+                </div>
+            @else
+                <div style="width: 900px; margin-bottom: 30px;">
+                    <img src="{{ asset('images/albums/' . $album->photos[$i]->photo_name) }}" alt="{{ $album->photos[$i]->photo_name }}" style="height: 100%; width: 100%;">
+                </div>
+            @endif
+        {{--@endforeach--}}
+        @endfor
     </div>
 
 @endsection
