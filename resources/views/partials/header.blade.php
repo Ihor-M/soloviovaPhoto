@@ -19,7 +19,7 @@
     <ul class="nav pages">
         <li><a href="{{asset('photos/' . 'wedding')}}">Photos</a></li>
         <li><a href="{{route('Blog')}}">Blog</a></li>
-        <li><a href="{{route('Info')}}">Info</a></li>
+        <li><a href="{{route('About')}}">Info</a></li>
     </ul>
     <ul class="nav social-media">
         <li><a href="https://www.facebook.com/Soloviova-PHOTO-583647855153675/?fref=ts">Facebook</a></li>
