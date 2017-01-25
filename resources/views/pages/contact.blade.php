@@ -58,6 +58,7 @@
                                    name="request-name"> Family photos
                         </label>
                     </div>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="col-md-12">
                         <input type="submit" class="btn btn-submit">
                     </div>
