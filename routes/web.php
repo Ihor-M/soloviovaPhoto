@@ -33,4 +33,5 @@ Route::group(['namespace' => 'V1', 'middleware' => 'auth'], function () {
     Route::get('admin-upload-photos/{id}', 'CreateAlbumController@showUploadForm')->name('uploadPhotos');
     Route::post('admin-uploaded-photos', 'CreateAlbumController@savePhotos')->name('savePhotos');
     Route::get('admin-delete-photo/{id}', 'CreateAlbumController@deletePhoto')->name('deletePhoto');
+    Route::get('admin-create-feedback', 'CreateFeedbackController@index')->name('addFeedback');
 });

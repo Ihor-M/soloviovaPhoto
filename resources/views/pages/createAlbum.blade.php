@@ -3,7 +3,10 @@
 @section('content')
 <div class="col-lg-9 col-lg-offset-1">
     @include('partials.authHeader')
-    <h1>Create new album</h1>
+    <div>
+        <h1 class="admin-page-header" id="my-h1">Create new album</h1>
+        <a href="{{ asset('admin-create-feedback/') }}" class="admin-page-link">Create feedback</a>
+    </div>
     <form action="{{ route('CreateAlbum') }}" method="post" id="createAlbum" class="create-album-form">
         @if(count($errors) > 0)
             <ul class="validation-errors">
